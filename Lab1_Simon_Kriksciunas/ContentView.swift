@@ -56,6 +56,20 @@ struct ContentView: View {
     }
 }
 
+struct ResultsDialog: View {
+    
+    var body: some View {
+        ZStack {
+            Color.black.opacity(0.4).edgesIgnoringSafeArea(.all)
+            
+            VStack(spacing: 20){
+                Text("Round Results").font(.title).bold()
+                
+            }
+        }
+    }
+}
+
 
 class GameViewModel : ObservableObject{
     @Published var currentNumber = 0
