@@ -18,9 +18,9 @@ struct ContentView: View {
             VStack(spacing: 30){
                 
                 // Score display
-                Text("Score: \(gameViewModel.correctAnswers)/\(gameViewModel.totalAttempts)")
-                    .font(.title2)
-                    .foregroundColor(.blue)
+//                Text("Score: \(gameViewModel.correctAnswers)/\(gameViewModel.totalAttempts)")
+//                    .font(.title2)
+//                    .foregroundColor(.blue)
                 
                 // Number display
                 Text("\(gameViewModel.currentNumber)")
@@ -47,7 +47,12 @@ struct ContentView: View {
                 
                 
                 
-                
+                // Feedback icon
+                if let isCorrect = gameViewModel.lastAnswerCorrect {
+                    Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
+                        .foregroundColor(isCorrect ? .green : .red)
+                        .font(.system(size: 60))
+                }
                 
                 
                 
