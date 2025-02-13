@@ -2,7 +2,6 @@
 //  ContentView.swift
 //  Lab1_Simon_Kriksciunas
 //
-//  Created by Kathryn Ann Rogers on 2025-02-13.
 //
 
 import SwiftUI
@@ -17,6 +16,14 @@ struct ContentView: View {
         }
         .padding()
     }
+}
+
+
+class GameViewModel : ObservableObject{
+    @Published var currentNumber = 0
+    @Published var timeRemaining: Double = 5.0
+    @Published var correctAnswers = 0
+    @Published var totalAttempts = 0
 }
 
 #Preview {
