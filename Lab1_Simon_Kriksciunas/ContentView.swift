@@ -100,8 +100,13 @@ struct ResultsDialog: View {
                 .padding()
                 .background(Color.blue)
                 .foregroundColor(.white)
+                .cornerRadius(10)
                 
             }
+            .padding(30)
+            .background(Color.white)
+            .cornerRadius(20)
+            .shadow(radius: 10)
         }
     }
 }
