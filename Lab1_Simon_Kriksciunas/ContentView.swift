@@ -24,6 +24,9 @@ class GameViewModel : ObservableObject{
     @Published var timeRemaining: Double = 5.0
     @Published var correctAnswers = 0
     @Published var totalAttempts = 0
+    @Published var lastAnswerCorrect: Bool?
+    
+    private var roundLength = 10
     
     func startGame(){
         
@@ -32,6 +35,28 @@ class GameViewModel : ObservableObject{
     private func generateNewNumber(){
         currentNumber = Int.random(in: 2...100)
         timeRemaining = 5.0
+    }
+    
+    
+    
+    func checkAnswer(isPrime: Bool){
+        let isActuallyPrime = isPrimeNumber(currentNumber)
+        lastAnswerCorrect = isPrime == isActuallyPrime
+        
+        if lastAnswerCorrect == true {
+            correctAnswers += 1
+        }
+        
+        totalAttempts += 1
+        
+        if totalAttempts == roundLength{
+            
+            // show results
+            
+        } else {
+            generateNewNumber()
+        }
+        
     }
     
     private func isPrimeNumber(_ number: Int) -> Bool {
