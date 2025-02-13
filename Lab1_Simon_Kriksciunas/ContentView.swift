@@ -28,6 +28,20 @@ struct ContentView: View {
                     .foregroundColor(.black)
                 
                 // Answer buttons
+                HStack(spacing: 40){
+                    
+                    // Is Prime button
+                    Button(action: {gameViewModel.checkAnswer(isPrime: true)}){
+                        Text("Prime")
+                    }
+                    
+                    // Is Not Prime button
+                    Button(action: {gameViewModel.checkAnswer(isPrime: false)}){
+                        Text("Not Prime")
+                    }
+                    
+                    
+                }
                 
                 // Timer display
                 
