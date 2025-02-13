@@ -60,6 +60,8 @@ struct ResultsDialog: View {
     
     let correctAnswers: Int
     let wrongAnswers: Int
+    @Binding var isPresented: Bool
+    let onDismiss: () -> Void
     
     var body: some View {
         ZStack {
@@ -73,8 +75,13 @@ struct ResultsDialog: View {
                 Text("Wrong Answers: \(wrongAnswers)").font(.title2)
                 
                 Button("Continue") {
-                    
+                    isPresented = false
+                    onDismiss()
                 }
+                .font(.title2)
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(.white)
                 
             }
         }
