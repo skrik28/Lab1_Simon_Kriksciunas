@@ -33,11 +33,22 @@ struct ContentView: View {
                     // Is Prime button
                     Button(action: {gameViewModel.checkAnswer(isPrime: true)}){
                         Text("Prime")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
                     
                     // Is Not Prime button
                     Button(action: {gameViewModel.checkAnswer(isPrime: false)}){
                         Text("Not Prime")
+                            .font(.title)
+                            .padding()
+                            .background(Color.cyan)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
                     
                     
@@ -51,7 +62,7 @@ struct ContentView: View {
                 if let isCorrect = gameViewModel.lastAnswerCorrect {
                     Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
                         .foregroundColor(isCorrect ? .green : .red)
-                        .font(.system(size: 60))
+                        .font(.system(size: 120))
                 }
                 
                 
