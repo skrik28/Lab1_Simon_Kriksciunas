@@ -24,6 +24,15 @@ class GameViewModel : ObservableObject{
     @Published var timeRemaining: Double = 5.0
     @Published var correctAnswers = 0
     @Published var totalAttempts = 0
+    
+    func startGame(){
+        
+    }
+    
+    private func generateNewNumber(){
+        currentNumber = Int.random(in: 2...100)
+        timeRemaining = 5.0
+    }
 }
 
 #Preview {
