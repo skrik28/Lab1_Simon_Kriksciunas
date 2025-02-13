@@ -7,14 +7,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @StateObject private var gameViewModel = GameViewModel()
+    
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Color.white.edgesIgnoringSafeArea(.all)
+            
+            VStack(spacing: 30){
+                
+                // Score display
+                
+                // Number display
+                
+                // Answer buttons
+                
+                // Timer display
+                
+                
+                
+            }
+            
         }
         .padding()
+        
+        // Results dialog
     }
 }
 
