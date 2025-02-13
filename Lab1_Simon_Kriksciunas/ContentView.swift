@@ -58,12 +58,23 @@ struct ContentView: View {
 
 struct ResultsDialog: View {
     
+    let correctAnswers: Int
+    let wrongAnswers: Int
+    
     var body: some View {
         ZStack {
             Color.black.opacity(0.4).edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 20){
                 Text("Round Results").font(.title).bold()
+                
+                Text("Correct Answers: \(correctAnswers)").font(.title2)
+                
+                Text("Wrong Answers: \(wrongAnswers)").font(.title2)
+                
+                Button("Continue") {
+                    
+                }
                 
             }
         }
