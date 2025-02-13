@@ -47,12 +47,22 @@ struct ContentView: View {
                 
                 
                 
+                
+                
+                
+                
+            }
+            .padding()
+            
+            // Results dialog
+            if gameViewModel.showingResults {
+                ResultsDialog(correctAnswers: gameViewModel.correctAnswers, wrongAnswers: gameViewModel.totalAttempts - gameViewModel.correctAnswers, isPresented: $gameViewModel.showingResults, onDismiss: <#T##() -> Void#>)
             }
             
         }
-        .padding()
-        
-        // Results dialog
+        .onAppear {
+            gameViewModel.startGame()
+        }
     }
 }
 
@@ -95,6 +105,7 @@ class GameViewModel : ObservableObject{
     @Published var correctAnswers = 0
     @Published var totalAttempts = 0
     @Published var lastAnswerCorrect: Bool?
+    @Published var showingResults = false
     
     private var roundLength = 10
     
@@ -123,6 +134,7 @@ class GameViewModel : ObservableObject{
         if totalAttempts == roundLength{
             
             // show results
+            showingResults = true
             
         } else {
             generateNewNumber()
