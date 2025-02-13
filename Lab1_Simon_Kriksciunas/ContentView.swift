@@ -18,9 +18,14 @@ struct ContentView: View {
             VStack(spacing: 30){
                 
                 // Score display
-                Text("Score: \(gameViewModel.correctAnswers)/\(gameViewModel.totalAttempts)").font(.title2).foregroundColor(.blue)
+                Text("Score: \(gameViewModel.correctAnswers)/\(gameViewModel.totalAttempts)")
+                    .font(.title2)
+                    .foregroundColor(.blue)
                 
                 // Number display
+                Text("\(gameViewModel.currentNumber)")
+                    .font(.system(size: 72, weight: .bold))
+                    .foregroundColor(.black)
                 
                 // Answer buttons
                 
