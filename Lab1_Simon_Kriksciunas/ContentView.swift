@@ -33,6 +33,18 @@ class GameViewModel : ObservableObject{
         currentNumber = Int.random(in: 2...100)
         timeRemaining = 5.0
     }
+    
+    private func isPrimeNumber(_ number: Int) -> Bool {
+        if number <= 1 {return false}
+        if number <= 3 {return true}
+        
+        for i in 2...Int(Double(number).squareRoot()){
+            if number % i == 0 {
+                return false
+            }
+        }
+        return true
+    }
 }
 
 #Preview {
