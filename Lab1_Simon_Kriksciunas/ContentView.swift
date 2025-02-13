@@ -67,7 +67,8 @@ class GameViewModel : ObservableObject{
     private var roundLength = 10
     
     func startGame(){
-        
+        generateNewNumber()
+        // start timer
     }
     
     private func generateNewNumber(){
