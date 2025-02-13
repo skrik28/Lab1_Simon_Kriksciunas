@@ -56,7 +56,10 @@ struct ContentView: View {
             
             // Results dialog
             if gameViewModel.showingResults {
-                ResultsDialog(correctAnswers: gameViewModel.correctAnswers, wrongAnswers: gameViewModel.totalAttempts - gameViewModel.correctAnswers, isPresented: $gameViewModel.showingResults, onDismiss: <#T##() -> Void#>)
+                ResultsDialog(correctAnswers: gameViewModel.correctAnswers,
+                              wrongAnswers: gameViewModel.totalAttempts - gameViewModel.correctAnswers,
+                              isPresented: $gameViewModel.showingResults,
+                              onDismiss: {gameViewModel.startNewRound()})
             }
             
         }
@@ -110,6 +113,14 @@ class GameViewModel : ObservableObject{
     private var roundLength = 10
     
     func startGame(){
+        generateNewNumber()
+        // start timer
+    }
+    
+    func startNewRound() {
+        correctAnswers = 0
+        totalAttempts = 0
+        lastAnswerCorrect = nil
         generateNewNumber()
         // start timer
     }
