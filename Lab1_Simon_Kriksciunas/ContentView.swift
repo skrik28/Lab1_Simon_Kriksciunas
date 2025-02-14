@@ -17,10 +17,6 @@ struct ContentView: View {
             
             VStack(spacing: 30){
                 
-                // Score display
-//                Text("Score: \(gameViewModel.correctAnswers)/\(gameViewModel.totalAttempts)")
-//                    .font(.title2)
-//                    .foregroundColor(.blue)
                 
                 // Number display
                 Text("\(gameViewModel.currentNumber)")
@@ -130,6 +126,7 @@ class GameViewModel : ObservableObject{
     @Published var showingResults = false
     
     private var roundLength = 10
+    private var timer: Timer?
     
     func startGame(){
         generateNewNumber()
@@ -161,7 +158,8 @@ class GameViewModel : ObservableObject{
         
         totalAttempts += 1
         
-        if totalAttempts == roundLength{
+        
+        if totalAttempts == roundLength {
             
             // show results
             showingResults = true
@@ -182,6 +180,18 @@ class GameViewModel : ObservableObject{
             }
         }
         return true
+    }
+    
+    private func startTimer(){
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) {[weak self] _ in guard let self = self else {return}
+            if self.timeRemaining > 0 {
+                self.timeRemaining -= 0.1
+            } else {
+                // score a wrong answer
+            }
+            
+        }
     }
 }
 
