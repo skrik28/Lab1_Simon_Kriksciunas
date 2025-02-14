@@ -189,9 +189,15 @@ class GameViewModel : ObservableObject{
                 self.timeRemaining -= 0.1
             } else {
                 // score a wrong answer
+                self.ranOutOfTime()
             }
             
         }
+    }
+    
+    private func ranOutOfTime() {
+        checkAnswer(isPrime: false)
+        generateNewNumber()
     }
 }
 
