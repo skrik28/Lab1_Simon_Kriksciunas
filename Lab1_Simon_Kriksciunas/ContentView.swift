@@ -54,10 +54,6 @@ struct ContentView: View {
                     
                 }
                 
-                // Timer display
-                
-                
-                
                 // Feedback icon
                 if let isCorrect = gameViewModel.lastAnswerCorrect {
                     Image(systemName: isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
@@ -65,7 +61,9 @@ struct ContentView: View {
                         .font(.system(size: 120))
                 }
                 
-                
+                // Timer display
+                Text("\(Int(gameViewModel.timeRemaining))")
+                    .foregroundColor(.red)
                 
             }
             .padding()
