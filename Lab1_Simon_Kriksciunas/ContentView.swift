@@ -130,7 +130,7 @@ class GameViewModel : ObservableObject{
     
     func startGame(){
         generateNewNumber()
-        // start timer
+        startTimer()
     }
     
     func startNewRound() {
@@ -138,7 +138,7 @@ class GameViewModel : ObservableObject{
         totalAttempts = 0
         lastAnswerCorrect = nil
         generateNewNumber()
-        // start timer
+        startTimer()
     }
     
     private func generateNewNumber(){
@@ -163,6 +163,7 @@ class GameViewModel : ObservableObject{
             
             // show results
             showingResults = true
+            timer?.invalidate()
             
         } else {
             generateNewNumber()
@@ -196,8 +197,18 @@ class GameViewModel : ObservableObject{
     }
     
     private func ranOutOfTime() {
-        checkAnswer(isPrime: false)
-        generateNewNumber()
+        lastAnswerCorrect = false
+        totalAttempts += 1
+        
+        if totalAttempts == roundLength {
+            
+            // show results
+            showingResults = true
+            timer?.invalidate()
+            
+        } else {
+            generateNewNumber()
+        }
     }
 }
 
